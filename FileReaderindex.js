@@ -1,6 +1,5 @@
 // Read CSV file using window.FileOpener/FileReader
 // Tested POST and GET with postman
-
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNWFmZTg0YWViNTY1MDA4ZTgzOWY0MSIsInVzZXIiOiI1YzVhZmU4NGI4NTMyYzAwMTkxYzI4NmYiLCJvcmciOiI1YzVhMDYxMjJlYWM4ODAwMTlmMmU0MTkiLCJvcmdOYW1lIjoienp6LXNhcmFoIiwidXNlclR5cGUiOiJtYWNoaW5lIiwicm9sZXMiOlsib3JnLmFkbWluIiwib3JnLnVzZXIiXSwiZXhwIjoxNTUwMDcyMDY3LCJhdWQiOiJ1cm46Y29uc3VtZXIiLCJpc3MiOiJ1cm46YXBpIiwic3ViIjoiNWM1YWZlODRiODUzMmMwMDE5MWMyODZmIn0.7JtzujViP56W-Vv6e7W4Agb30Txg4WrASeaCXDs_eYk"
 
 //from FileOpener/FileReader documentation
@@ -83,7 +82,7 @@ function createObjects(firstName, lastName, homePhone, email, workPhone, custome
       },
     )
   }
-  if (workPhone !== '+ 1'){
+  if (workPhone !== '+1'){
       phones.push(
       {
         "phone": workPhone,
@@ -100,23 +99,10 @@ function createObjects(firstName, lastName, homePhone, email, workPhone, custome
       }
     )
   }
+
+
   postRequest(firstName, lastName, emails, phones, birthday, customerType);
 }
-
-//   function deleteRequest(){
-//   var xhr = new XMLHttpRequest();
-//   //CORS would not allow POST request with xhr.withCredentials set to true.
-//   xhr.withCredentials = false;
-//   xhr.addEventListener("readystatechange", function () {
-//     if (this.readyState === this.DONE) {
-//       console.log(this.responseText);
-//     }
-//   });
-//   // POST Request also did not work to the normal URL so I implemented CORS anywhere to bypass CORS.
-//   xhr.open("DELETE", "https://cors-anywhere.herokuapp.com/https://api.kustomerapp.com/v1/customers/:id");
-//   xhr.setRequestHeader("authorization", `Bearer ${token}`);
-//   xhr.setRequestHeader("content-type", "application/json");
-// }
 
 function postRequest(firstName, lastName, emails, phones, birthday, customerType){
   let sendData = JSON.stringify({
