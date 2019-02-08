@@ -42,6 +42,8 @@ function processData(csv) {
     while (allTextLines.length) {
         lines.push(allTextLines.shift().split(','));
       }
+
+      parseInfo(lines)
     }
 
 
@@ -49,7 +51,9 @@ function processData(csv) {
 //for each array/row, identify indices to make into data objects
 //With console.log of lines, I can see all First names were 0 index, etc.
 
-function parseInfo(){
+function parseInfo(lines){
+
+  console.log(lines)
 for (i = 0; i < lines.length; i++){
   if (i !== 19){
     let firstName = (lines[i][0])
